@@ -1,6 +1,5 @@
 const router = require('nordic/ragnar').router();
-const productsList = require('../../utils/mockProducts');
-const { logPath, supportedCurrencies } = require('./middlewares');
+const { supportedCurrencies } = require('./middlewares');
 
 /** 
  * Ejercicio 2 - Crear un endpoint /api/currencies
