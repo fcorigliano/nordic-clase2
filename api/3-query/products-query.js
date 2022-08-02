@@ -1,5 +1,6 @@
-/**
-Ejercicio 3 - Query
+const router = require('nordic/ragnar').router();
+
+// Ejercicio 3 - Query
 
 let products = [
     {
@@ -19,6 +20,7 @@ let products = [
     },
 ];
 
+/**
 Utilizando el array de productos detallado arriba, vamos a implementar
 un endpoint en nuestra app que nos permita filtrar los productos según 
 los siguientes criterios recibidos por query:
@@ -40,3 +42,65 @@ Despues de implementar el código, correr el comando
 `npm run test:unit:watch products-query-route` y comprobar 
 que pasan todos los tests.
 ********************************************************/
+
+// EJERCICIO
+router.get('/', (req, res) => {
+    const { name, minPrice, maxPrice } = req.query;
+    let product = products.filter(x => x.stock > 0);
+
+    if(name){
+        product = products.filter(x => x.name.toUpperCase() === name.toUpperCase());
+        if(minPrice && maxPrice){
+            product = products.filter(x => x.name.toUpperCase() === name.toUpperCase() && x.price >= minPrice && x.price <= maxPrice);
+            res.json(product);
+        }
+        res.json(product);
+    } else if(!name && !minPrice && !maxPrice){
+        res.json(product);
+    } else {
+        res.json('No se encontraron productos');
+    }
+
+
+
+    // let product = null;
+
+    // if(!name && !minPrice && !maxPrice){
+    //     product = products.filter(x => x.stock > 0);
+    //     res.json({product});
+    // } else if(name && minPrice && maxPrice){
+    //     product = products.filter(x => x.name.toUpperCase() === name.toUpperCase() && x.price >= minPrice && x.price <= maxPrice);
+    //     res.json({product});
+    // } else if(name && !(minPrice || maxPrice)){
+    //     product = products.filter(x => x.name.toUpperCase() === name.toUpperCase());
+    //     res.json({product});
+    // } else if(minPrice && maxPrice && !name){
+    //     product = products.filter(x=> x.price >= minPrice && x.price <= maxPrice);
+    //     res.json({product});
+    // } else {
+    //     res.json('No se encontraron productos');
+    // }
+})
+
+/* INICIO EXPLICACIÓN
+
+
+// PARAMS
+// https://dev.mercadolibre.com.ar:8443/api/products-query/400/facu
+// router.get('/:id/:name', (req, res) => {
+//     const { id, name } = req.params;
+//     res.json({ id, name });
+// })
+
+
+
+// QUERY STRING 
+// https://dev.mercadolibre.com.ar:8443/api/products-query?id=400&name=facu
+// router.get('/', (req, res) => {
+//     const { id, name } = req.query;
+//     res.json({ id, name });
+// })
+
+FIN EXPLICACIÓN */
+
+module.exports = router;
