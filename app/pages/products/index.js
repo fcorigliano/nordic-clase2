@@ -14,3 +14,20 @@
  * API de MeLi en /services/productsService.js
  *****************************************************************************
  */
+
+
+ /**
+ * Module dependencies
+ */
+const router = require('nordic/ragnar').router();
+const { render, fetchProducts } = require('./controller');
+
+/**
+ * Routers
+ */
+router.get('/', fetchProducts, render);
+
+/**
+ * Expose router
+ */
+module.exports = router;

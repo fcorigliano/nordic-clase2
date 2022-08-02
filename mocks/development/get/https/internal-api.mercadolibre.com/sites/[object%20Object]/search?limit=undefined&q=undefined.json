@@ -1,0 +1,20 @@
+{
+  "status": 403,
+  "statusText": "Forbidden",
+  "headers": {
+    "date": "Tue, 02 Aug 2022 21:05:07 GMT",
+    "content-type": "text/plain;charset=utf-8",
+    "content-length": "228",
+    "connection": "keep-alive",
+    "x-request-id": "25c2209a-8e72-48aa-b6f3-2e861cc747fd",
+    "x-blocking-reason": "NO_ACCESS_GROUP_MATCHED",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block",
+    "x-nginx-host": "i-081dc9aece7950f75-10.54.28.174",
+    "x-nginx-pool": "publicresto.search-api.melifrontends.com",
+    "x-nginx-upstreamhost": ", 172.19.0.5:80",
+    "x-upstream-server": "envoy"
+  },
+  "data": "The user does not have an associated access group, for the application search-api. You can request the required access-group at the following link https://mordor.adminml.com/access/traffic-catalog?access_groups=searchs-core-read"
+}

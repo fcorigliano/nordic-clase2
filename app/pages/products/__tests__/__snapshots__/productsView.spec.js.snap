@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ejercitación Integradora - La View de Products 1) Renderiza 1`] = `
+<DocumentFragment>
+  <li>
+    Motorola
+  </li>
+  <li>
+    Samsung
+  </li>
+  <li>
+    Huawei
+  </li>
+  <li>
+    iPhone
+  </li>
+  <li>
+    Samsung2
+  </li>
+  <li>
+    Nokia
+  </li>
+  <li>
+    LG
+  </li>
+  <li>
+    Sony
+  </li>
+  <li>
+    Motorola2
+  </li>
+  <li>
+    Moto-G
+  </li>
+</DocumentFragment>
+`;
